@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 158 64% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 158 64% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 158 64% 12%;
+
+    --primary: 158 64% 38%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 143 43% 92%;
+    --secondary-foreground: 158 64% 20%;
+
+    --muted: 143 43% 96%;
+    --muted-foreground: 158 25% 45%;
+
+    --accent: 120 60% 70%;
+    --accent-foreground: 158 64% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 143 43% 88%;
+    --input: 143 43% 94%;
+    --ring: 158 64% 38%;
+
+    /* Enhanced EcoFinds specific tokens */
+    --eco-primary: 158 64% 38%;
+    --eco-primary-light: 158 64% 48%;
+    --eco-primary-dark: 158 64% 28%;
+    --eco-secondary: 143 43% 92%;
+    --eco-accent: 120 60% 70%;
+    --eco-neutral: 46 16% 50%;
+    --eco-surface: 0 0% 100%;
+    --eco-success: 142 76% 36%;
+    --eco-warning: 45 93% 47%;
+    --eco-info: 200 100% 50%;
+    
+    /* Enhanced Gradients */
+    --gradient-eco: linear-gradient(135deg, hsl(158 64% 38%) 0%, hsl(143 43% 48%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(143 43% 98%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(143 43% 99%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(158 64% 38%) 0%, hsl(158 64% 42%) 100%);
+    --gradient-button-hover: linear-gradient(135deg, hsl(158 64% 42%) 0%, hsl(158 64% 46%) 100%);
+    
+    /* Enhanced Shadows */
+    --shadow-soft: 0 4px 16px -4px hsl(158 64% 38% / 0.12);
+    --shadow-card: 0 2px 12px -2px hsl(158 25% 45% / 0.08);
+    --shadow-elevated: 0 8px 32px -8px hsl(158 64% 38% / 0.15);
+    --shadow-button: 0 2px 8px -2px hsl(158 64% 38% / 0.2);
+    --shadow-button-hover: 0 4px 16px -4px hsl(158 64% 38% / 0.25);
+    --shadow-input: 0 0 0 3px hsl(158 64% 38% / 0.1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  h5 {
+    @apply text-lg font-semibold;
+  }
+
+  h6 {
+    @apply text-base font-semibold;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  small {
+    @apply text-sm text-muted-foreground;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2;
+  }
+
+  /* Selection styles */
+  ::selection {
+    @apply bg-eco-primary/20 text-eco-primary;
+  }
+
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-eco-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-eco-primary/50;
+  }
+}
+
+@layer components {
+  /* Enhanced button styles */
+  .btn-primary {
+    @apply bg-gradient-button hover:bg-gradient-button-hover text-white font-medium px-6 py-3 rounded-xl shadow-button hover:shadow-button-hover transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-eco-secondary hover:bg-eco-secondary/80 text-eco-primary font-medium px-6 py-3 rounded-xl border border-eco-primary/20 hover:border-eco-primary/40 transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply border-2 border-eco-primary text-eco-primary hover:bg-eco-primary hover:text-white font-medium px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95;
+  }
+
+  /* Enhanced card styles */
+  .card-eco {
+    @apply bg-gradient-card border border-border/50 rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .card-product {
+    @apply bg-white border border-border/50 rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 overflow-hidden;
+  }
+
+  /* Enhanced input styles */
+  .input-eco {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-input bg-background text-foreground placeholder:text-muted-foreground focus:border-eco-primary focus:ring-4 focus:ring-eco-primary/10 transition-all duration-300;
+  }
+
+  /* Enhanced form styles */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply text-sm font-medium text-foreground block;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s infinite;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 transform hover:-translate-y-1 hover:shadow-elevated;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-soft;
+  }
+
+  .hover-scale {
+    @apply transition-all duration-300 transform hover:scale-105;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceGentle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
